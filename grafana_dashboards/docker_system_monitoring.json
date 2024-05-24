@@ -1,4 +1,53 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_RABBITMQ_PROMETHEUS",
+      "label": "RabbitMQ Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.3"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table-old",
+      "name": "Table (old)",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -20,13 +69,13 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 893,
   "graphTooltip": 1,
-  "id": 7,
+  "id": null,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -86,12 +135,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "time() - node_boot_time_seconds{instance=~\".*\"}",
           "format": "time_series",
@@ -108,7 +157,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -167,12 +216,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "count(rate(container_last_seen{name=~\".+\"}[$interval]))",
           "intervalFactor": 2,
@@ -186,7 +235,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -251,12 +300,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "min((node_filesystem_size_bytes{fstype=~\"xfs|ext4\",instance=~\".+\"} - node_filesystem_free_bytes{fstype=~\"xfs|ext4\",instance=~\".+\"} )/ node_filesystem_size_bytes{fstype=~\"xfs|ext4\",instance=~\".+\"})",
           "format": "time_series",
@@ -272,7 +321,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -337,12 +386,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "((node_memory_MemTotal_bytes{instance=~\".+\"} - node_memory_MemAvailable_bytes{instance=~\".+\"}) / node_memory_MemTotal_bytes{instance=~\".+\"}) * 100",
           "format": "time_series",
@@ -357,7 +406,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -421,12 +470,12 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "(node_memory_SwapTotal_bytes{instance=~'.*'} - node_memory_SwapFree_bytes{instance=~'.*'})",
           "format": "time_series",
@@ -442,7 +491,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -507,12 +556,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_load1{instance=~\".*\"} / count by(job, instance)(count by(job, instance, cpu)(node_cpu_seconds_total{instance=~\".*\"}))",
           "format": "time_series",
@@ -533,7 +582,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -564,7 +613,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 1,
       "points": false,
       "renderer": "flot",
@@ -576,7 +625,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_network_receive_bytes_total{id=\"/\"}[$interval])) by (id)",
           "intervalFactor": 2,
@@ -587,7 +636,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "- sum(rate(container_network_transmit_bytes_total{id=\"/\"}[$interval])) by (id)",
           "hide": false,
@@ -637,7 +686,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -668,7 +717,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -680,7 +729,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_cpu_system_seconds_total[1m]))",
           "hide": true,
@@ -692,7 +741,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_cpu_system_seconds_total{name=~\".+\"}[1m]))",
           "hide": true,
@@ -705,7 +754,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_cpu_system_seconds_total{id=\"/\"}[1m]))",
           "hide": true,
@@ -719,7 +768,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(process_cpu_seconds_total[$interval])) * 100",
           "hide": false,
@@ -733,7 +782,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_cpu_system_seconds_total{name=~\".+\"}[1m])) + sum(rate(container_cpu_system_seconds_total{id=\"/\"}[1m])) + sum(rate(process_cpu_seconds_total[1m]))",
           "hide": true,
@@ -816,7 +865,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "decimals": 0,
       "editable": true,
@@ -847,7 +896,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -859,7 +908,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_load1{instance=~\".*\"} / count by(job, instance)(count by(job, instance, cpu)(node_cpu_seconds_total{instance=~\".*\"}))",
           "format": "time_series",
@@ -954,7 +1003,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -985,7 +1034,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1002,7 +1051,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_filesystem_size_bytes{fstype=\"xfs\"} - node_filesystem_free_bytes{fstype=\"xfs\"}",
           "format": "time_series",
@@ -1099,7 +1148,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1130,7 +1179,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1142,7 +1191,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_rss{name=~\".+\"}",
           "format": "time_series",
@@ -1155,7 +1204,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_memory_rss{name=~\".+\"})",
           "format": "time_series",
@@ -1168,7 +1217,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "format": "time_series",
@@ -1181,7 +1230,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_rss{id=\"/\"}",
           "format": "time_series",
@@ -1194,7 +1243,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_memory_rss)",
           "format": "time_series",
@@ -1207,7 +1256,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_Buffers",
           "format": "time_series",
@@ -1220,7 +1269,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_MemFree",
           "format": "time_series",
@@ -1233,7 +1282,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_MemAvailable",
           "format": "time_series",
@@ -1246,7 +1295,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes",
           "format": "time_series",
@@ -1259,7 +1308,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_Inactive",
           "format": "time_series",
@@ -1272,7 +1321,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_KernelStack",
           "format": "time_series",
@@ -1285,7 +1334,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_Active",
           "format": "time_series",
@@ -1298,7 +1347,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_MemTotal - (node_memory_Active + node_memory_MemFree + node_memory_Inactive)",
           "format": "time_series",
@@ -1311,7 +1360,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_MemFree + node_memory_Inactive ",
           "format": "time_series",
@@ -1324,7 +1373,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_rss{name=~\".+\"}",
           "format": "time_series",
@@ -1337,7 +1386,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "node_memory_Inactive + node_memory_MemFree + node_memory_MemAvailable",
           "format": "time_series",
@@ -1400,7 +1449,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1431,7 +1480,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1443,7 +1492,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "-sum(rate(node_disk_read_bytes_total[$interval])) by (device)",
           "format": "time_series",
@@ -1457,7 +1506,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(node_disk_written_bytes_total[$interval])) by (device)",
           "format": "time_series",
@@ -1506,7 +1555,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1539,7 +1588,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1551,7 +1600,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_network_receive_bytes_total{name=~\".+\"}[$interval])) by (name)",
           "intervalFactor": 2,
@@ -1562,7 +1611,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "- rate(container_network_transmit_bytes_total{name=~\".+\"}[$interval])",
           "hide": true,
@@ -1610,7 +1659,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1645,7 +1694,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1657,7 +1706,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_network_transmit_bytes_total{name=~\".+\"}[$interval])) by (name)",
           "intervalFactor": 2,
@@ -1668,7 +1717,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "rate(container_network_transmit_bytes_total{id=\"/\"}[$interval])",
           "hide": true,
@@ -1720,7 +1769,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1753,7 +1802,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1765,7 +1814,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(container_cpu_usage_seconds_total{name=~\".+\"}[$interval])) by (name) * 100",
           "hide": false,
@@ -1816,7 +1865,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1849,7 +1898,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1861,7 +1910,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_memory_swap{name=~\".+\"}) by (name)",
           "hide": false,
@@ -1873,7 +1922,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "hide": true,
@@ -1922,7 +1971,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -1961,7 +2010,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_memory_rss{name=~\".+\"}) by (name)",
           "hide": false,
@@ -1973,7 +2022,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "hide": true,
@@ -2023,7 +2072,7 @@
       ],
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -2063,7 +2112,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"} - container_memory_usage_bytes{name=~\".+\"}) by (name) ",
           "hide": true,
@@ -2076,7 +2125,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"}) by (name) ",
           "hide": false,
@@ -2088,7 +2137,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "hide": true,
@@ -2111,7 +2160,7 @@
       ],
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -2151,7 +2200,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"} - container_memory_usage_bytes{name=~\".+\"}) by (name) ",
           "hide": true,
@@ -2164,7 +2213,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"}) by (name) ",
           "hide": true,
@@ -2176,7 +2225,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "hide": false,
@@ -2199,7 +2248,7 @@
       ],
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "editable": true,
       "error": false,
@@ -2240,7 +2289,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(100 - ((container_spec_memory_limit_bytes{name=~\".+\"} - container_memory_usage_bytes{name=~\".+\"})  * 100 / container_spec_memory_limit_bytes{name=~\".+\"}) ) by (name) ",
           "intervalFactor": 2,
@@ -2252,7 +2301,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(container_spec_memory_limit_bytes{name=~\".+\"}) by (name) ",
           "hide": true,
@@ -2264,7 +2313,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "container_memory_usage_bytes{name=~\".+\"}",
           "hide": true,
@@ -2286,14 +2335,10 @@
     "list": [
       {
         "allValue": ".+",
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "P6DD009AC261D74EE"
+          "uid": "${DS_RABBITMQ_PROMETHEUS}"
         },
         "definition": "",
         "hide": 0,
@@ -2412,15 +2457,10 @@
         "type": "interval"
       },
       {
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "P6DD009AC261D74EE"
+          "uid": "${DS_RABBITMQ_PROMETHEUS}"
         },
         "definition": "",
         "hide": 0,

@@ -1,4 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_RABBITMQ_PROMETHEUS",
+      "label": "RabbitMQ Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.3"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -26,7 +69,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 10991,
   "graphTooltip": 1,
-  "id": 3,
+  "id": null,
   "links": [
     {
       "icon": "doc",
@@ -43,7 +86,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -101,12 +144,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_queue_messages_ready * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -124,7 +167,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -188,12 +231,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_received_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -210,7 +253,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -274,12 +317,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_global_publishers * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -295,7 +338,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -359,12 +402,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_connections * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -381,7 +424,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -445,12 +488,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_queues * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -466,7 +509,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -530,12 +573,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_queue_messages_unacked * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -552,7 +595,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -616,12 +659,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_redelivered_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_global_messages_delivered_consume_auto_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_global_messages_delivered_consume_manual_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_global_messages_delivered_get_auto_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_global_messages_delivered_get_manual_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -638,7 +681,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -702,12 +745,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_consumers * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -723,7 +766,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -787,12 +830,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_channels * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -808,7 +851,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -872,12 +915,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_build_info * on(instance, job) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -919,7 +962,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1229,12 +1272,12 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.4.2",
+      "pluginVersion": "10.4.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "exemplar": false,
           "expr": "rabbitmq_build_info * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
@@ -1259,7 +1302,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "If the value is zero or less, the memory alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the memory alarm is triggered with a slight delay.\n\nThe kernel's view of the amount of memory used by the node can differ from what the node itself can observe. This means that this value can be negative for a sustained period of time.\n\nBy default nodes use resident set size (RSS) to compute how much memory they use. This strategy can be changed (see the guides below).\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Memory Alarms](https://www.rabbitmq.com/memory.html)\n* [Reasoning About Memory Use](https://www.rabbitmq.com/memory-use.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
       "fieldConfig": {
@@ -1502,7 +1545,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "(rabbitmq_resident_memory_limit_bytes * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_resident_memory_bytes * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -1518,7 +1561,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "This metric is reported for the partition where the RabbitMQ data directory is stored.\n\nIf the value is zero or less, the disk alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the free disk space alarm is triggered with a slight delay.\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Disk Space Alarms](https://www.rabbitmq.com/disk-alarms.html)\n* [Disk Space](https://www.rabbitmq.com/production-checklist.html#resource-limits-disk-space)\n* [Persistence Configuration](https://www.rabbitmq.com/persistence-conf.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
       "fieldConfig": {
@@ -1761,7 +1804,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "rabbitmq_disk_space_available_bytes * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
           "format": "time_series",
@@ -1777,7 +1820,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "When this value reaches zero, new connections will not be accepted and disk write operations may fail.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Open File Handles Limit](https://www.rabbitmq.com/production-checklist.html#resource-limits-file-handle-limit)",
       "fieldConfig": {
@@ -2019,7 +2062,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "(rabbitmq_process_max_fds * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_fds * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -2035,7 +2078,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "When this value reaches zero, new connections will not be accepted.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Networking and RabbitMQ](https://www.rabbitmq.com/networking.html)",
       "fieldConfig": {
@@ -2277,7 +2320,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "(rabbitmq_process_max_tcp_sockets * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_tcp_sockets * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
@@ -2319,7 +2362,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "Total number of ready messages ready to be delivered to consumers.\n\nAim to keep this value as low as possible. RabbitMQ behaves best when messages are flowing through it. It's OK for publishers to occasionally outpace consumers, but the expectation is that consumers will eventually process all ready messages.\n\nIf this metric keeps increasing, your system will eventually run out of memory and/or disk space. Consider using TTL or Queue Length Limit to prevent unbounded message growth.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Consumers](https://www.rabbitmq.com/consumers.html)\n* [Queue Length Limit](https://www.rabbitmq.com/maxlength.html)\n* [Time-To-Live and Expiration](https://www.rabbitmq.com/ttl.html)",
       "fieldConfig": {
@@ -2328,6 +2371,9 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2339,6 +2385,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2363,7 +2410,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2545,7 +2593,8 @@
           "showLegend": false
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.3.4",
@@ -2553,7 +2602,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_queue_messages_ready * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -2569,7 +2618,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The total number of messages that are either in-flight to consumers, currently being processed by consumers or simply waiting for the consumer acknowledgements to be processed by the queue. Until the queue processes the message acknowledgement, the message will remain unacknowledged.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Confirms and Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)",
       "fieldConfig": {
@@ -2578,6 +2627,9 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -2589,6 +2641,7 @@
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
             "pointSize": 5,
@@ -2613,7 +2666,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2795,7 +2849,8 @@
           "showLegend": false
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.3.4",
@@ -2803,7 +2858,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rabbitmq_queue_messages_unacked * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -2845,7 +2900,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The incoming message rate before any routing rules are applied.\n\nIf this value is lower than the number of messages published to queues, it may indicate that some messages are delivered to more than one queue.\n\nIf this value is higher than the number of messages published to queues, messages cannot be routed and will either be dropped or returned to publishers.\n\n* [Publishers](https://www.rabbitmq.com/publishers.html)",
       "fieldConfig": {
@@ -3079,7 +3134,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_received_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -3095,7 +3150,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages confirmed by the broker to publishers. Publishers must opt-in to receive message confirmations.\n\nIf this metric is consistently at zero it may suggest that publisher confirms are not used by clients. The safety of published messages is likely to be at risk.\n\n* [Publisher Confirms](https://www.rabbitmq.com/confirms.html#publisher-confirms)\n* [Publisher Confirms and Data Safety](https://www.rabbitmq.com/publishers.html#data-safety)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fieldConfig": {
@@ -3329,7 +3384,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_confirmed_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -3345,7 +3400,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages received from publishers and successfully routed to the master queue replicas.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Publishers](https://www.rabbitmq.com/publishers.html)",
       "fieldConfig": {
@@ -3579,7 +3634,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_routed_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -3595,7 +3650,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages received from publishers that have publisher confirms enabled and the broker has not confirmed yet.\n\n* [Publishers](https://www.rabbitmq.com/publishers.html)\n* [Confirms and Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fieldConfig": {
@@ -3829,7 +3884,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_received_confirm_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"} - \nrate(rabbitmq_global_messages_confirmed_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}\n) by(rabbitmq_node)",
           "format": "time_series",
@@ -3845,7 +3900,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages that cannot be routed and are dropped. \n\nAny value above zero means message loss and likely suggests a routing problem on the publisher end.\n\n* [Unroutable Message Handling](https://www.rabbitmq.com/publishers.html#unroutable)",
       "fieldConfig": {
@@ -3943,7 +3998,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_unroutable_dropped_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -3959,7 +4014,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages that cannot be routed and are returned back to publishers.\n\nSustained values above zero may indicate a routing problem on the publisher end.\n\n* [Unroutable Message Handling](https://www.rabbitmq.com/publishers.html#unroutable)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fieldConfig": {
@@ -4057,7 +4112,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_unroutable_returned_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -4099,7 +4154,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages delivered to consumers. It includes messages that have been redelivered.\n\nThis metric does not include messages that have been fetched by consumers using `basic.get` (consumed by polling).\n\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -4333,7 +4388,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(\n  (rate(rabbitmq_global_messages_delivered_consume_auto_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n  (rate(rabbitmq_global_messages_delivered_consume_manual_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})\n) by(rabbitmq_node)",
           "format": "time_series",
@@ -4349,7 +4404,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages that have been redelivered to consumers. It includes messages that have been requeued automatically and redelivered due to channel exceptions or connection closures.\n\nHaving some redeliveries is expected, but if this metric is consistently non-zero, it is worth investigating why.\n\n* [Negative Acknowledgement and Requeuing of Deliveries](https://www.rabbitmq.com/confirms.html#consumer-nacks-requeue)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -4586,7 +4641,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_redelivered_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -4602,7 +4657,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of message deliveries to consumers that use manual acknowledgement mode.\n\nWhen this mode is used, RabbitMQ waits for consumers to acknowledge messages before more messages can be delivered.\n\nThis is the safest way of consuming messages.\n\n* [Consumer Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -4836,7 +4891,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_delivered_consume_manual_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -4852,7 +4907,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of message deliveries to consumers that use automatic acknowledgement mode.\n\nWhen this mode is used, RabbitMQ does not wait for consumers to acknowledge message deliveries.\n\nThis mode is fire-and-forget and does not offer any delivery safety guarantees. It tends to provide higher throughput and it may lead to consumer overload  and higher consumer memory usage.\n\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -5086,7 +5141,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_delivered_consume_auto_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -5102,7 +5157,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of message acknowledgements coming from consumers that use manual acknowledgement mode.\n\n* [Consumer Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -5336,7 +5391,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_acknowledged_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -5352,7 +5407,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages delivered to polling consumers that use automatic acknowledgement mode.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -5450,7 +5505,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_delivered_get_auto_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -5466,7 +5521,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of polling consumer operations that yield no result.\n\nAny value above zero means that RabbitMQ resources are wasted by polling consumers.\n\nCompare this metric to the other polling consumer metrics to see the inefficiency rate.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -5564,7 +5619,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_get_empty_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -5580,7 +5635,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of messages delivered to polling consumers that use manual acknowledgement mode.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fieldConfig": {
@@ -5678,7 +5733,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_global_messages_delivered_get_manual_ack_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -5720,7 +5775,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "Total number of queue masters  per node. \n\nThis metric makes it easy to see sub-optimal queue distribution in a cluster.\n\n* [Queue Masters, Data Locality](https://www.rabbitmq.com/ha.html#master-migration-data-locality)\n* [Queues](https://www.rabbitmq.com/queues.html)",
       "fieldConfig": {
@@ -5953,7 +6008,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "rabbitmq_queues * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
           "format": "time_series",
@@ -5970,7 +6025,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of queue declarations performed by clients.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
       "fieldConfig": {
@@ -6207,7 +6262,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_queues_declared_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -6223,7 +6278,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of new queues created (as opposed to redeclarations).\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
       "fieldConfig": {
@@ -6460,7 +6515,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_queues_created_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -6476,7 +6531,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of queues deleted.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
       "fieldConfig": {
@@ -6713,7 +6768,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_queues_deleted_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -6755,7 +6810,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "Total number of channels on all currently opened connections.\n\nIf this metric grows monotonically it is highly likely a channel leak in one of the applications. Confirm channel leaks by using the _Channels opened_ and _Channels closed_ metrics.\n\n* [Channel Leak](https://www.rabbitmq.com/channels.html#channel-leaks)\n* [Channels](https://www.rabbitmq.com/channels.html)",
       "fieldConfig": {
@@ -6988,7 +7043,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "rabbitmq_channels * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
           "format": "time_series",
@@ -7004,7 +7059,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of new channels opened by applications across all connections. Channels are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of channel churn or mass connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [High Channel Churn](https://www.rabbitmq.com/channels.html#high-channel-churn)\n* [Channels](https://www.rabbitmq.com/channels.html)",
       "fieldConfig": {
@@ -7241,7 +7296,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_channels_opened_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -7257,7 +7312,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of channels closed by applications across all connections. Channels are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of channel churn or mass connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [High Channel Churn](https://www.rabbitmq.com/channels.html#high-channel-churn)\n* [Channels](https://www.rabbitmq.com/channels.html)",
       "fieldConfig": {
@@ -7494,7 +7549,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_channels_closed_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -7536,7 +7591,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "Total number of client connections.\n\nIf this metric grows monotonically it is highly likely a connection leak in one of the applications. Confirm connection leaks by using the _Connections opened_ and _Connections closed_ metrics.\n\n* [Connection Leak](https://www.rabbitmq.com/connections.html#monitoring)\n* [Connections](https://www.rabbitmq.com/connections.html)",
       "fieldConfig": {
@@ -7769,7 +7824,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "rabbitmq_connections * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
           "format": "time_series",
@@ -7785,7 +7840,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of new connections opened by clients. Connections are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of connection churn or mass connection recovery.\n\n* [Connection Leak](https://www.rabbitmq.com/connections.html#monitoring)\n* [Connections](https://www.rabbitmq.com/connections.html)",
       "fieldConfig": {
@@ -8022,7 +8077,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_connections_opened_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -8039,7 +8094,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "P6DD009AC261D74EE"
+        "uid": "${DS_RABBITMQ_PROMETHEUS}"
       },
       "description": "The rate of connections closed. Connections are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of connection churn or mass connection recovery.\n\n* [Connections](https://www.rabbitmq.com/connections.html)",
       "fieldConfig": {
@@ -8276,7 +8331,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "P6DD009AC261D74EE"
+            "uid": "${DS_RABBITMQ_PROMETHEUS}"
           },
           "expr": "sum(rate(rabbitmq_connections_closed_total[60s]) * on(instance, job) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
@@ -8317,15 +8372,10 @@
         "type": "datasource"
       },
       {
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "P6DD009AC261D74EE"
+          "uid": "${DS_RABBITMQ_PROMETHEUS}"
         },
         "definition": "label_values(rabbitmq_identity_info, namespace)",
         "hide": 0,
@@ -8348,14 +8398,10 @@
         "useTags": false
       },
       {
-        "current": {
-          "selected": false,
-          "text": "rabbit@rabbitmq",
-          "value": "rabbit@rabbitmq"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "P6DD009AC261D74EE"
+          "uid": "${DS_RABBITMQ_PROMETHEUS}"
         },
         "definition": "label_values(rabbitmq_identity_info{namespace=\"$namespace\"}, rabbitmq_cluster)",
         "hide": 0,
