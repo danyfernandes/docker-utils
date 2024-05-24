@@ -1,7 +1,6 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   rabbitmq:
     image: rabbitmq:3.13-management
     hostname: rabbitmq
@@ -20,6 +19,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
 
   node-exporter:
     image: prom/node-exporter:latest
@@ -29,9 +30,9 @@ services:
     ports:
       - "9100:9100"
     command:
-      - '--path.procfs=/host/proc'
-      - '--path.sysfs=/host/sys'
-      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)"
     volumes:
       - "/proc:/host/proc"
       - "/sys:/host/sys"
@@ -81,3 +82,4 @@ networks:
 
 volumes:
   prometheus-data:
+  rabbitmq-data:
