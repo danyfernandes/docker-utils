@@ -16,10 +16,10 @@ scrape_configs:
         labels:
           job: varlogs
           __path__: /var/log/*log
-  - job_name: apps
+  - job_name: adopt_apps
     static_configs:
       - targets:
           - localhost
         labels:
           job: applogs
-          __path__: /home/dani/logs/*.log
+          __path__: /home/AzureDevOps/logs/*.log
